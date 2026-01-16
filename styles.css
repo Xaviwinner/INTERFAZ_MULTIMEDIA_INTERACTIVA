@@ -1,10 +1,11 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 /* importa los iconos de oostrap para poder usarlos */
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
 /* importa fuentes de google fonts */
 :root {
     --blanco: rgba(228, 228, 228, 1);
-/* variable que uso varias veces para dar color blanco */
+    /* variable que uso varias veces para dar color blanco */
 
 }
 
@@ -171,59 +172,59 @@ body>* {
     /* el hover es mas grande que el play */
 }
 
-#estado{
-  position: fixed;
-  right: 10px;
-  bottom: 1px;
-  /* lo pone abajo a la derecha */
-  z-index: 9999;
-  /* indica que se quede por encima */
-  color: rgba(228, 228, 228, 1);
-  font-size: 40px;
-  background-color: black;
+#estado {
+    position: fixed;
+    right: 10px;
+    bottom: 1px;
+    /* lo pone abajo a la derecha */
+    z-index: 9999;
+    /* indica que se quede por encima */
+    color: rgba(228, 228, 228, 1);
+    font-size: 40px;
+    background-color: black;
 
-  padding: 6px 10px;
-  border-radius: 10px;
-  /* redondea los bordes */
+    padding: 6px 10px;
+    border-radius: 10px;
+    /* redondea los bordes */
 }
 
 #estadoVolumen {
-  margin-right: 8px;
-  font-size: 14px;
-  color: white;
-  opacity: 0.8;
-  /* texto del muted e unmited */
+    margin-right: 8px;
+    font-size: 14px;
+    color: white;
+    opacity: 0.8;
+    /* texto del muted e unmited */
 }
 
 
 #iconos {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  /* encargado de poneerlo en la esquina izquierda */
-  display: flex;
-  gap: 15px;
-  /* espacio entre los qiconos */
-  z-index: 9999;
-/* vuelve a asegurarsse que sea visible colocandolo sobre todo */
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    /* encargado de poneerlo en la esquina izquierda */
+    display: flex;
+    gap: 15px;
+    /* espacio entre los qiconos */
+    z-index: 9999;
+    /* vuelve a asegurarsse que sea visible colocandolo sobre todo */
 }
 
 #iconos a {
-  color: white;
-  font-size: 28px;
-  background: rgba(0,0,0,0.6);
-  /* fondo semitransparente de los iconos */
-  padding: 10px;
-  border-radius: 50%;
-  text-decoration: none;
-  /* le quita el subrayado */
-  transition: transform 0.2s, background 0.2s;
-  /* esta es la transicion que hace cuando pasa pr encima */
+    color: white;
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0.6);
+    /* fondo semitransparente de los iconos */
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    /* le quita el subrayado */
+    transition: transform 0.2s, background 0.2s;
+    /* esta es la transicion que hace cuando pasa pr encima */
 }
 
 #iconos a:hover {
-  transform: scale(1.2);
-  /* se agranda al pasar por encima del icono */
-  background: black;
-  /* fondo del icono es nego */
+    transform: scale(1.2);
+    /* se agranda al pasar por encima del icono */
+    background: black;
+    /* fondo del icono es nego */
 }

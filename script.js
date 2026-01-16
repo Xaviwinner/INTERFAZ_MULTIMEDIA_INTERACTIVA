@@ -26,16 +26,16 @@ const estadoV = document.getElementById('estadoVolumen');
 // este eventlistener hace que salte la funcion que hace que cuando se mueva la barra de volumen se ajuste este mismo
 Vcontrol.addEventListener("input", function (event) {
     // esto es lo que hace que se ajuste
-  cancion.volume = event.target.value;
-// condicional que hace que si llega a 0 ponga el texto de mute
-  if (event.target.value == 0) {
-    cancion.muted = true;
-    estadoV.textContent = 'muted';
-  } else {
-    // si no esta en 0 muestra unmuted
-    cancion.muted = false;
-    estadoV.textContent = 'unmuted';
-  }
+    cancion.volume = event.target.value;
+    // condicional que hace que si llega a 0 ponga el texto de mute
+    if (event.target.value == 0) {
+        cancion.muted = true;
+        estadoV.textContent = 'muted';
+    } else {
+        // si no esta en 0 muestra unmuted
+        cancion.muted = false;
+        estadoV.textContent = 'unmuted';
+    }
 });
 
 // esta es la lista de canciones con los datos de ada cancion
@@ -90,7 +90,7 @@ const canciones = [
 let indiceCancionActual = 0;
 // funcion que actualiza los datos de la cancion segun la cancion que salte
 function actualizarInfoCancion() {
-// cambia los h1 por el titulo de la cancion que suene
+    // cambia los h1 por el titulo de la cancion que suene
     tituloCancion.textContent = canciones[indiceCancionActual].titulo;
     // cambia los p que haya por el nombre del autor
     nombreArtista.textContent = canciones[indiceCancionActual].nombre;
@@ -139,7 +139,7 @@ function pausarCancion() {
 }
 // este evento se va a ejecutar mientras la cancion avanza 
 cancion.addEventListener('timeupdate', function () {
-// basicamente asigna el valor del tiempo de la cancion para definirlo el la barra
+    // basicamente asigna el valor del tiempo de la cancion para definirlo el la barra
     progreso.max = cancion.duration;
     // esto lo hace mediante el tiempo actual
     progreso.value = cancion.currentTime;
@@ -197,23 +197,23 @@ setInterval(() => {
 
 // funciona como el anterior de la tecla de alante y a tras salvoq eu esta vez es para el espacio
 document.onkeydown = function (e) {
-  if (e.code === 'Space') {
-    e.preventDefault();
-    // evita problemas con el scroll de las webs
+    if (e.code === 'Space') {
+        e.preventDefault();
+        // evita problemas con el scroll de las webs
 
-    if (cancion.muted === false) {
-        // este if hace que si la cancionno este muteada lo este y la barra pase a valer 0
-      cancion.muted = true;
-      Vcontrol.value = 0;
-      estadoV.textContent = 'muted';
-    } else {
-        // en el caso de no estar muteado lo mutea y sube el volumen al maximo, lo contario a lo anterior
-      cancion.muted = false;
-      Vcontrol.value = 1;
-      cancion.volume = 1;
-      estadoV.textContent = 'unmuted';
+        if (cancion.muted === false) {
+            // este if hace que si la cancionno este muteada lo este y la barra pase a valer 0
+            cancion.muted = true;
+            Vcontrol.value = 0;
+            estadoV.textContent = 'muted';
+        } else {
+            // en el caso de no estar muteado lo mutea y sube el volumen al maximo, lo contario a lo anterior
+            cancion.muted = false;
+            Vcontrol.value = 1;
+            cancion.volume = 1;
+            estadoV.textContent = 'unmuted';
+        }
     }
-  }
 };
 
 // encargad de inicializar la cancion al abrir la web
