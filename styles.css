@@ -1,9 +1,10 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+/* importa los iconos de oostrap para poder usarlos */
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
-
+/* importa fuentes de google fonts */
 :root {
     --blanco: rgba(228, 228, 228, 1);
-
+/* variable que uso varias veces para dar color blanco */
 
 }
 
@@ -11,42 +12,59 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
+    /* hacen que el borde y el padding cuenten dentro del elemento */
+    font-family: "Nova", sans-serif;
+    /* la fuente del programa */
+
 }
 
 body {
 
     display: flex;
     justify-content: center;
+    /* centra el contenido de la web */
     min-height: 100vh;
+    /* aseguramos que la altura minima de la pantalla competa sea esa */
     align-items: center;
+    /* centra el contenido de forma vertical */
     width: 100%;
 
     background-repeat: no-repeat;
-    background-size: cover;
     backdrop-filter: blur(8px);
+    /* esto le da desenfoque al fondo */
 }
 
 #video-background {
     position: fixed;
+    /* fija la posicion para que no se mueva */
     top: 50%;
     left: 50%;
+    /* lo coloca centrado */
     width: 100%;
     height: 100%;
+    /* marca que el video debe de ocupar la pantalla entera */
     object-fit: cover;
+    /* recorta para no deformar */
     transform: translate(-50%, -50%);
+    /* ajusta para centrar */
     z-index: -2;
+
+    /* lo pasa al fondo */
 }
 
 body::before {
+    /* esto es un pseudo-elemento que sirve como capa digamos */
     content: '';
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
+    /* capa que cubre el video de color casi qeu transparente */
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    /* ocupa toda la pantalla */
     z-index: 1;
+    /* hace que este por encima del fondo que es el video */
 }
 
 
@@ -54,24 +72,32 @@ body::before {
 body>* {
     position: relative;
     z-index: 2;
+    /* esto marca que todo lo que este en este bloque quede por encima de la capa semitransparente */
 }
 
 .reproductor {
     display: flex;
     flex-direction: column;
+    /* apila los elementos de dentro */
     justify-content: center;
     align-items: center;
+    /* encargado de centrar el contenido */
     color: var(--blanco);
+    /* color del texto */
     width: 380px;
     padding: 10px 30px;
+    /* espacio que hay dentro */
     border-radius: 20px;
+    /* redondea los bordes */
     background-color: rgba(228, 228, 228, 0.1);
+    /* fondo de color semitransparente */
 }
 
 .reproductor h1 {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.6;
+    /* estos son los estilos que le damos al titulo */
 }
 
 
@@ -83,12 +109,15 @@ body>* {
 
 #progreso {
     appearance: none;
+    /* quita el estilo que tiene la barra */
     width: 100%;
     height: 7px;
+    /* esto le da un tamaño a la barra */
     background: rgba(165, 165, 165, 0.4);
     border-radius: 4px;
     margin: 32px 0 24px;
     cursor: pointer;
+    /* esto hace que aparezca la mano al pasar por encima de la barra */
 }
 
 #progreso::-webkit-slider-thumb {
@@ -105,12 +134,14 @@ body>* {
 .controles {
     display: flex;
     justify-content: center;
+    /* encargado de colocar los botones segun se indique */
 }
 
 
 .controles button {
     width: 50px;
     aspect-ratio: 1/1;
+    /* le da forma circular a los botones */
     margin: 10px;
     background: rgba(165, 165, 165, 0.3);
     color: var(--blanco);
@@ -121,33 +152,39 @@ body>* {
     box-shadow: 0 6px 10px rgba(228, 228, 228, 0.3);
     cursor: pointer;
     transition: all 0.1s linear;
+    /* encargado de realizar la transicion */
 }
 
 .controles .control:hover {
     transform: scale(1.1);
+    /* animacion de agrandar cuando pasa por encima */
 }
 
 .controles .iconoControl {
     transform: scale(1.3);
+    /* hace que el boton de play sea mas grande que el resto */
 }
 
 
 .controles .iconoControl:hover {
     transform: scale(1.4);
+    /* el hover es mas grande que el play */
 }
 
 #estado{
   position: fixed;
   right: 10px;
   bottom: 1px;
+  /* lo pone abajo a la derecha */
   z-index: 9999;
+  /* indica que se quede por encima */
   color: rgba(228, 228, 228, 1);
   font-size: 40px;
   background-color: black;
-    padding: 44px 22px;      
 
   padding: 6px 10px;
   border-radius: 10px;
+  /* redondea los bordes */
 }
 
 #estadoVolumen {
@@ -155,6 +192,7 @@ body>* {
   font-size: 14px;
   color: white;
   opacity: 0.8;
+  /* texto del muted e unmited */
 }
 
 
@@ -162,22 +200,30 @@ body>* {
   position: fixed;
   left: 20px;
   bottom: 20px;
+  /* encargado de poneerlo en la esquina izquierda */
   display: flex;
   gap: 15px;
+  /* espacio entre los qiconos */
   z-index: 9999;
+/* vuelve a asegurarsse que sea visible colocandolo sobre todo */
 }
 
 #iconos a {
   color: white;
   font-size: 28px;
   background: rgba(0,0,0,0.6);
+  /* fondo semitransparente de los iconos */
   padding: 10px;
   border-radius: 50%;
   text-decoration: none;
+  /* le quita el subrayado */
   transition: transform 0.2s, background 0.2s;
+  /* esta es la transicion que hace cuando pasa pr encima */
 }
 
 #iconos a:hover {
   transform: scale(1.2);
+  /* se agranda al pasar por encima del icono */
   background: black;
+  /* fondo del icono es nego */
 }

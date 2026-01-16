@@ -5,56 +5,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-
+<!-- enlazamos con el archivo css para darle estilo a la web -->
   <link rel="stylesheet" href="styles.css" />
+  <!-- CDN de boostrap del css -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
 </head>
 
 <body>
-<video id="video-background" autoplay muted loop playsinline loop playsinline>
+  <!-- video que uso como fondo de la web con un loop que lo va a repetir, un muted que le quita el sonido al video y el autoplay que lo reproduce automaticamente -->
+<video id="video-background" autoplay muted loop >
+  <!-- este es el video y direccion -->
   <source src="videos/cup.mp4" type="video/mp4">
-</video>   
+</video>  
+<!-- secion principal  -->
   <section class="reproductor">
-
+<!-- esto se usa para que en js se cambie el titulo -->
     <h1>Título</h1>
+    <!-- al igual que antes js lo usa para cambiar el nombre del autor -->
     <p>Nombre</p>
+    <!-- texto que mostrara el programa que variarar gracias al js -->
     <span id="estadoVolumen">unmuted</span>
-
+<!-- esta es la barra de volumen a la que le marcamos su minimo, su maximo los saltos que va a dar y su valor inicial que sera 0,7 -->
 <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.7">
 
-
+<!-- este es el elemento encargado de la cancion -->
     <audio id="cancion">
+      <!-- en este caso esta vacio ya que sera el js el que lo seleccione y rellene -->
       <source src="" type="audio/mpeg" />
     </audio>
-
+<!-- barra que muestra por donde va la cancion -->
     <input type="range" value="0" id="progreso" />
-
+<!-- contenido de botones que salen en la pantalla -->
     <div class="controles">
+      <!-- el boton atras con su icono sacado de boostrap icons al igyal que todos -->
       <button class="atras control">
         <i class="bi bi-rewind-circle-fill"></i>
       </button>
-
+<!-- boon de reproducir y pausar del prograa con iconos del boostrap icons -->
       <button class="repa iconoControl">
         <i class="bi bi-play-fill" id="iconoControl"></i>
       </button>
-
+<!-- boton de hacia delante con icono del boostrap icons -->
       <button class="adelante control">
         <i class="bi bi-fast-forward-circle-fill"></i>
       </button>
     </div>
   </section>
-
+<!-- link para cargar el js del boostrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <div id="estado">Estableciendo conexión</div>
-
+<!-- enlace al archivo java script -->
   <script src="script.js"></script>
 
 
 
-
+<!-- ultimos iconos con los enlaces a otra webs -->
 <div id="iconos">
   <a href="https://www.youtube.com/@MaxiPrograma" target="_blank">
     <i class="bi bi-youtube"></i>
