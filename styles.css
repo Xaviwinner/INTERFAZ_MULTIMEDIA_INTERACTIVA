@@ -135,3 +135,24 @@ body>* {
 .controles .iconoControl:hover {
     transform: scale(1.4);
 }
+
+#estado{
+  position: fixed;
+  right: 10px;
+  bottom: 1px;
+  z-index: 9999;
+  color: rgba(228, 228, 228, 1);
+  font-size: 40px;
+  background-color: black; /* cuadro negro */
+    padding: 44px 22px;      /* tamaño del cuadro */
+
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+#estadoVolumen {
+  margin-right: 8px;
+  font-size: 14px;
+  color: white;
+  opacity: 0.8;
+}

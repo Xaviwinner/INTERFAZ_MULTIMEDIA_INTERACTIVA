@@ -13,20 +13,33 @@ const botonAleatorio = document.querySelector('.controles button.aleatorio');
 const botonRepetir = document.querySelector('.controles button.repetir');
 
 const playlistContainer = document.getElementById('playlist-container');
-const audio = document.getElementById("myAudio");
 const volumeControl = document.getElementById("volumeControl");
+const estado = document.getElementById('estado');
+const estadoVolumen = document.getElementById('estadoVolumen');
+
+let ultimoVolumen = volumeControl.value;
 
 volumeControl.addEventListener("input", function (event) {
-    audio.volume = event.target.value;
+  cancion.volume = event.target.value;
+
+  if (event.target.value == 0) {
+    cancion.muted = true;
+    estadoVolumen.textContent = 'muted';
+  } else {
+    cancion.muted = false;
+    estadoVolumen.textContent = 'unmuted';
+  }
 });
+
+
 const canciones = [
     {
-        
+
         titulo: 'Introduction',
         imagen: 'img/CUP.jpg',
         nombre: 'Kristofer Kris Maddigan',
         fuente: 'music/03. Introduction.mp3',
-        
+
 
     },
     {
@@ -113,14 +126,9 @@ function pausarCancion() {
 
 cancion.addEventListener('timeupdate', function () {
 
-    if (!cancion.paused) {
-        progreso.vaue = cancion.currentTime;
-    }
-
-
-
-
-})
+    progreso.max = cancion.duration;
+    progreso.value = cancion.currentTime;
+});
 
 progreso.addEventListener('input', function () {
 
@@ -134,19 +142,56 @@ progreso.addEventListener('change', function () {
 
 })
 botonAdelante.addEventListener('click', function () {
-    indiceCancionActual = (indiceCancionActual + 1) % canciones.length;
+    indiceCancionActual = Math.floor(Math.random() * canciones.length);
     actualizarInfoCancion();
     reproducirCancion()
 })
-
 
 botonAtras.addEventListener('click', function () {
-    indiceCancionActual = (indiceCancionActual - 1 + canciones.length) % canciones.length;
+    indiceCancionActual = Math.floor(Math.random() * canciones.length);
     actualizarInfoCancion();
     reproducirCancion()
 })
 
+cancion.onended = function () {
+    botonAdelante.click();
+};
+
+document.addEventListener('keydown', function (event) {
+
+    if (event.code === 'ArrowRight') {
+        botonAdelante.click();
+    }
+
+    if (event.code === 'ArrowLeft') {
+        botonAtras.click();
+    }
+
+});
+
+
+const textos = ['Estableciendo conexión', 'Estableciendo conexión.', 'Estableciendo conexión..', 'Estableciendo conexión...', 'generando estructuras', 'generando estructuras.', 'generando estructuras..', 'generando estructuras...', 'uniendote al servidor', 'uniendote al servidor.', 'uniendote al servidor..', 'uniendote al servidor...'];
+let i = 0;
+
+setInterval(() => {
+    i = (i + 1) % textos.length;
+    estado.textContent = textos[i];
+}, 2000);
+
+
+document.onkeydown = function (e) {
+    if (e.code === 'Space') {
+        e.preventDefault();
+
+        if (cancion.muted === false) {
+            cancion.muted = true;
+            volumeControl.value = 0;
+        } else {
+            cancion.muted = false;
+            volumeControl.value = 1;   // volumen al desmutear
+            cancion.volume = 1;
+        }
+    }
+};
 
 actualizarInfoCancion();
-
-
