@@ -156,3 +156,28 @@ body>* {
   color: white;
   opacity: 0.8;
 }
+
+
+#iconos {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 9999;
+}
+
+#iconos a {
+  color: white;
+  font-size: 28px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#iconos a:hover {
+  transform: scale(1.2);
+  background: black;
+}

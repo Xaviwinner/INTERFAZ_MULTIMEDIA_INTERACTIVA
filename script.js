@@ -180,18 +180,21 @@ setInterval(() => {
 
 
 document.onkeydown = function (e) {
-    if (e.code === 'Space') {
-        e.preventDefault();
+  if (e.code === 'Space') {
+    e.preventDefault();
 
-        if (cancion.muted === false) {
-            cancion.muted = true;
-            volumeControl.value = 0;
-        } else {
-            cancion.muted = false;
-            volumeControl.value = 1;   // volumen al desmutear
-            cancion.volume = 1;
-        }
+    if (cancion.muted === false) {
+      cancion.muted = true;
+      volumeControl.value = 0;
+      estadoVolumen.textContent = 'muted';
+    } else {
+      cancion.muted = false;
+      volumeControl.value = 1;
+      cancion.volume = 1;
+      estadoVolumen.textContent = 'unmuted';
     }
+  }
 };
+
 
 actualizarInfoCancion();
