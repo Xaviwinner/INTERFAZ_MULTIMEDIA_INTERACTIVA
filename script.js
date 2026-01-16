@@ -1,33 +1,33 @@
-const tituloCancion = document.querySelector('.reproductor-musica h1');
-const nombreArtista = document.querySelector('.reproductor-musica p');
+const tituloCancion = document.querySelector('.reproductor h1');
+const nombreArtista = document.querySelector('.reproductor p');
 
 const progreso = document.getElementById('progreso');
 const cancion = document.getElementById('cancion');
 
 const inconoControl = document.getElementById('iconoControl');
-const botonReproducirPausar = document.querySelector('.controles button.boton-reproducir-pausar');
+const botonReproducirPausar = document.querySelector('.controles button.repa');
 
 const botonAtras = document.querySelector('.controles button.atras');
 const botonAdelante = document.querySelector('.controles button.adelante');
 const botonAleatorio = document.querySelector('.controles button.aleatorio');
 const botonRepetir = document.querySelector('.controles button.repetir');
 
-const playlistContainer = document.getElementById('playlist-container');
-const volumeControl = document.getElementById("volumeControl");
+const contenedor = document.getElementById('playlist-container');
+const Vcontrol = document.getElementById("volumeControl");
 const estado = document.getElementById('estado');
-const estadoVolumen = document.getElementById('estadoVolumen');
+const estadoV = document.getElementById('estadoVolumen');
 
-let ultimoVolumen = volumeControl.value;
+let ultimoVolumen = Vcontrol.value;
 
-volumeControl.addEventListener("input", function (event) {
+Vcontrol.addEventListener("input", function (event) {
   cancion.volume = event.target.value;
 
   if (event.target.value == 0) {
     cancion.muted = true;
-    estadoVolumen.textContent = 'muted';
+    estadoV.textContent = 'muted';
   } else {
     cancion.muted = false;
-    estadoVolumen.textContent = 'unmuted';
+    estadoV.textContent = 'unmuted';
   }
 });
 
@@ -185,13 +185,13 @@ document.onkeydown = function (e) {
 
     if (cancion.muted === false) {
       cancion.muted = true;
-      volumeControl.value = 0;
-      estadoVolumen.textContent = 'muted';
+      Vcontrol.value = 0;
+      estadoV.textContent = 'muted';
     } else {
       cancion.muted = false;
-      volumeControl.value = 1;
+      Vcontrol.value = 1;
       cancion.volume = 1;
-      estadoVolumen.textContent = 'unmuted';
+      estadoV.textContent = 'unmuted';
     }
   }
 };

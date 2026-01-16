@@ -56,7 +56,7 @@ body>* {
     z-index: 2;
 }
 
-.reproductor-musica {
+.reproductor {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,14 +68,14 @@ body>* {
     background-color: rgba(228, 228, 228, 0.1);
 }
 
-.reproductor-musica h1 {
+.reproductor h1 {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.6;
 }
 
 
-.reproductor-musica p {
+.reproductor p {
     font-size: 1rem;
     font-weight: 400;
     opacity: 0.6;
@@ -143,8 +143,8 @@ body>* {
   z-index: 9999;
   color: rgba(228, 228, 228, 1);
   font-size: 40px;
-  background-color: black; /* cuadro negro */
-    padding: 44px 22px;      /* tamaño del cuadro */
+  background-color: black;
+    padding: 44px 22px;      
 
   padding: 6px 10px;
   border-radius: 10px;
